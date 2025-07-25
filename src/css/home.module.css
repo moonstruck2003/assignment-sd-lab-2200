@@ -1,0 +1,22 @@
+.TOTAL{
+    padding: 2%;
+}
+.redDiv {
+  background-color: red;
+  color: white;   
+  height: 100px;
+  width: 90%;
+}
+.authorRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.avatarpic{
+    width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #3700db;
+  display: flex;
+
+}
