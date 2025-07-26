@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styles from '../css/home.module.css';
+import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const comments = [
@@ -25,7 +27,9 @@ const Home = () => {
       <div className={styles.authorRow}>
         <div className={styles.avatarpic}></div>
         <div>
-          <p>Author Name</p>
+          <Link to="/author-profile" className={styles.authorLink}>
+          Author Name
+        </Link>
           <p>7 jan 2025</p>
         </div>
       </div>
@@ -48,7 +52,7 @@ const Home = () => {
             <div className={styles.authorRow}>
               <div className={styles.avatarpic}></div>
               <div>
-                <p className={styles.commentText}>Author Name</p>
+                <Link to="/author-profile" className={styles.authorLink}>Author Name</Link>
                 <p>7 Jan 2025</p>
               </div>
             </div>

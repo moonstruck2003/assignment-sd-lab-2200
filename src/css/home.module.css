@@ -77,3 +77,14 @@
   background-color: #2b2eff;
 }
 
+.authorLink {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.authorLink:hover {
+  text-decoration: underline;
+  color: #3700db;
+}
