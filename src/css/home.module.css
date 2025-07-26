@@ -5,13 +5,19 @@
   background-color: red;
   color: white;   
   height: 100px;
-  width: 90%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
 .authorRow {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    
 }
+
 .avatarpic{
     width: 40px;
   height: 40px;
@@ -20,3 +26,54 @@
   display: flex;
 
 }
+.commentBox {
+  background-color: white;
+  width: 90%;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+.commentBox p {
+  color: #666;
+  margin: 0;
+  font-size: large;
+}
+.MainCommentBox{
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  background-color: rgb(185, 255, 232);
+  height: 500px;
+  border-radius: 5%;
+  
+}
+.paginationBttns {
+  width: 80%;
+  height: 40px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #2b2eff;
+  color: #2b2eff;
+  cursor: pointer;
+}
+.paginationBttns a:hover {
+  color: white;
+  background-color: #2b2eff;
+}
+.paginationActive a {
+  color: white;
+  background-color: #2b2eff;
+}
+
