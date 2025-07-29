@@ -4,6 +4,32 @@ import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 
 const Home = () => {
+  const [like,setLike] = useState(false);
+  const [love,setLove] = useState(false);
+  const [angry,setAngry] = useState(false);
+  const [sad,setSad] = useState(false);
+  const [activeReaction, setActiveReaction] = useState(null); 
+
+  const handleReaction = (x) => {
+  setLike(false);
+  setLove(false);
+  setAngry(false);
+  setSad(false);
+
+  if (activeReaction !== x) {
+    switch(x) {
+      case 'like': setLike(true); break;
+      case 'love': setLove(true); break;
+      case 'angry': setAngry(true); break;
+      case 'sad': setSad(true); break;
+    }
+    setActiveReaction(x);
+  } else {
+    setActiveReaction(null);
+  }
+};
+
+
   const [currentPage, setCurrentPage] = useState(0);
   const comments = [
     { id: 1, text: "Great post!" },
@@ -27,9 +53,7 @@ const Home = () => {
       <div className={styles.authorRow}>
         <div className={styles.avatarpic}></div>
         <div>
-          <Link to="/author-profile" className={styles.authorLink}>
-          Author Name
-        </Link>
+          <Link to="/author-profile" className={styles.authorLink}>Author Name</Link>
           <p>7 jan 2025</p>
         </div>
       </div>
@@ -38,8 +62,45 @@ const Home = () => {
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates praesentium incidunt cumque at sint. Obcaecati fuga distinctio eum numquam natus voluptates. Doloremque fugiat amet quod deleniti ipsum rerum voluptatibus officiis sapiente sequi, eius aut ratione architecto, et delectus minima quibusdam quam asperiores. Placeat repellat totam commodi accusantium. Eaque, voluptates perferendis.</p>
       </div>
       <br />
+      <br />
       <hr />
-      <div className={styles.ReactionBox}></div>
+      
+      <div className={styles.ReactionBox}>
+        <button 
+          onClick={() => handleReaction('like')}
+          className={activeReaction === 'like' ? styles.active : ''}
+          disabled={activeReaction && activeReaction !== 'like'}
+        >
+         <i className={activeReaction === 'like' ? "fa-solid fa-thumbs-up" : "fa-regular   fa-thumbs-up"} />
+         <span>Like</span>
+        </button>
+        <button 
+          onClick={() => handleReaction('love')}
+          className={activeReaction === 'love' ? styles.active : ''}
+          disabled={activeReaction && activeReaction !== 'love'}
+        >
+         <i className={activeReaction === 'love' ? "fa-solid fa-heart" : "fa-regular   fa-heart"} />
+         <span>Love</span>
+        </button>
+        <button 
+          onClick={() => handleReaction('angry')}
+          className={activeReaction === 'angry' ? styles.active : ''}
+          disabled={activeReaction && activeReaction !== 'angry'}
+        >
+         <i className={activeReaction === 'angry' ? "fa-solid fa-face-angry" : "fa-regular   fa-face-angry"} />
+         <span>Angry</span>
+        </button>
+        <button 
+          onClick={() => handleReaction('sad')}
+          className={activeReaction === 'sad' ? styles.active : ''}
+          disabled={activeReaction && activeReaction !== 'sad'}
+        >
+         <i className={activeReaction === 'sad' ? "fa-solid fa-face-sad-tear" : "fa-regular   fa-face-sad-tear"} />
+         <span>Sad</span>
+        </button>
+        
+      </div>
+      <br />
 
       <div className={styles.MainCommentBox}>
         <p>{comments.length} Comments</p>

@@ -88,3 +88,26 @@
   text-decoration: underline;
   color: #3700db;
 }
+
+.ReactionBox {
+  background-color: rgb(220, 250, 250);
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px 0;  
+  border-radius: 10%;     
+}
+
+.ReactionBox button {
+  background: none; 
+  border: none;
+  cursor: pointer;       
+  display: flex;        
+  flex-direction: column;
+  align-items: center; 
+}
+
+.ReactionBox i {
+  font-size: 24px; 
+  margin-bottom: 5px;  
+}
