@@ -8,7 +8,13 @@ const Home = () => {
   const [love,setLove] = useState(false);
   const [angry,setAngry] = useState(false);
   const [sad,setSad] = useState(false);
+
   const [activeReaction, setActiveReaction] = useState(null); 
+
+  const [likeCount, setLikeCount] = useState(100);
+  const [loveCount, setLoveCount] = useState(200);
+  const [angryCount, setAngryCount] = useState(50);
+  const [sadCount, setSadCount] = useState(30);
 
   const handleReaction = (x) => {
   setLike(false);
@@ -18,14 +24,32 @@ const Home = () => {
 
   if (activeReaction !== x) {
     switch(x) {
-      case 'like': setLike(true); break;
-      case 'love': setLove(true); break;
-      case 'angry': setAngry(true); break;
-      case 'sad': setSad(true); break;
+      case 'like': 
+        setLike(true);
+        setLikeCount(likeCount + 1);
+        break;
+      case 'love': 
+        setLove(true);
+        setLoveCount(loveCount + 1);
+        break;
+      case 'angry': 
+        setAngry(true);
+        setAngryCount(angryCount + 1);
+        break;
+      case 'sad': 
+        setSad(true);
+        setSadCount(sadCount + 1);
+        break;
     }
     setActiveReaction(x);
   } else {
     setActiveReaction(null);
+    switch(x) {
+      case 'like': setLikeCount(likeCount - 1); break;
+      case 'love': setLoveCount(loveCount - 1); break;
+      case 'angry': setAngryCount(angryCount - 1); break;
+      case 'sad': setSadCount(sadCount - 1); break;
+    }
   }
 };
 
@@ -72,6 +96,7 @@ const Home = () => {
         >
          <i className={activeReaction === 'like' ? "fa-solid fa-thumbs-up" : "fa-regular   fa-thumbs-up"} />
          <span>Like</span>
+         <span className={styles.reactionCounter}>{likeCount}</span>
         </button>
         <button 
           onClick={() => handleReaction('love')}
@@ -80,6 +105,7 @@ const Home = () => {
         >
          <i className={activeReaction === 'love' ? "fa-solid fa-heart" : "fa-regular   fa-heart"} />
          <span>Love</span>
+         <span className={styles.reactionCounter}>{loveCount}</span>
         </button>
         <button 
           onClick={() => handleReaction('angry')}
@@ -88,6 +114,7 @@ const Home = () => {
         >
          <i className={activeReaction === 'angry' ? "fa-solid fa-face-angry" : "fa-regular   fa-face-angry"} />
          <span>Angry</span>
+         <span className={styles.reactionCounter}>{angryCount}</span>
         </button>
         <button 
           onClick={() => handleReaction('sad')}
@@ -96,6 +123,7 @@ const Home = () => {
         >
          <i className={activeReaction === 'sad' ? "fa-solid fa-face-sad-tear" : "fa-regular   fa-face-sad-tear"} />
          <span>Sad</span>
+         <span className={styles.reactionCounter}>{sadCount}</span>
         </button>
         
       </div>
@@ -104,7 +132,9 @@ const Home = () => {
       <div className={styles.MainCommentBox}>
         <p>{comments.length} Comments</p>
         <hr />
-        <div className={styles.commentBox}>
+        <div className={styles.commentBox}
+              contentEditable="true"
+              placeholder="Write your comment...">
           <p>Write your comment{"->"}</p>
         </div>
         {currentComments.map(comment => (

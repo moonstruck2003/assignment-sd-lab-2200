@@ -1,6 +1,12 @@
 .TOTAL{
     padding: 2%;
 }
+.aurthorPage {
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .redDiv {
   background-color: red;
   color: white;   
@@ -109,7 +115,7 @@
 
 .ReactionBox i {
   font-size: 24px; 
-  margin-bottom: 5px;  
+  margin-bottom: 3px;  
 }
 
 
@@ -143,3 +149,4 @@
 .commentButton i {
   font-size: 14px;
 }
+
