@@ -29,7 +29,6 @@ const Home = () => {
   }
 };
 
-
   const [currentPage, setCurrentPage] = useState(0);
   const comments = [
     { id: 1, text: "Great post!" },
@@ -118,7 +117,20 @@ const Home = () => {
               </div>
             </div>
             <p>{comment.text}</p>
-            <p><b>Like  12   Dislike  1   Reply  Report</b></p>
+              <div className={styles.commentActions}>
+              <button className={styles.commentButton}>
+                <i className="fa-regular fa-thumbs-up"></i> Like
+              </button>
+              <button className={styles.commentButton}>
+                <i className="fa-regular fa-thumbs-down"></i> Dislike
+              </button>
+              <button className={styles.commentButton}>
+                <i className="fa-regular fa-comment"></i> Reply
+              </button>
+              <button className={styles.commentButton}>
+                <i className="fa-regular fa-flag"></i> Report
+              </button>
+            </div>
           </div>
         ))}
 
